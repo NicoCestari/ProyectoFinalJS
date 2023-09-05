@@ -2,11 +2,20 @@
 
 alert("Bienvenido A Distribuidora Silva. Para comenzar con el Bot, le pedimos unos datos: ");
 
-function solicitarNombre() {
-    let nombreIngresado = prompt("Ingrese su nombre y apellido");
-    alert("El Usuario ingresado es: " + nombreIngresado);
-}
-solicitarNombre();
+function solicitarNombre(nombreIngresado) {
+    do {
+        nombreIngresado = prompt("Ingrese su nombre y apellido");
+        if (!isNaN(nombreIngresado) || (nombreIngresado === "")) {
+            alert("Ingrese su nombre por favor.");
+        }
+        else {
+            alert("El Usuario ingresado es: " + nombreIngresado);
+        }
+
+    } while (!isNaN(nombreIngresado) || (nombreIngresado == ""))
+
+};
+
 
 class Producto {
     constructor(id, nombre, precio, stock, oferta) {
