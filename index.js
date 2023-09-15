@@ -144,7 +144,13 @@ do {
             break;
         case "5":
             const idAEliminar = parseInt(prompt("Ingrese el ID del producto que desea eliminar: "));
-            eliminarProducto(idAEliminar);
+
+            if (idAEliminar !== "" || !isNaN(idAEliminar)) {
+                eliminarProducto(idAEliminar);
+            } else {
+                alert("Ingresa un ID válido");
+            }
+
             break;
 
         default:
