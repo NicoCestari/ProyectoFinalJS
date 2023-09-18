@@ -36,9 +36,5 @@ productos.forEach((el) => {
 });
 
 let btnShowCart = document.getElementById("show-cart");
-let btnHideCart = document.getElementById("hide-cart");
-let btnCleanCart = document.getElementById("clean-cart");
 
 btnShowCart.onclick = mostraCarrito;
-btnHideCart.onclick = ocultarCarrito;
-btnCleanCart.onclick = limpiarCarrito;
