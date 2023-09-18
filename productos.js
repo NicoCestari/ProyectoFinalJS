@@ -1,12 +1,3 @@
-class Producto {
-    constructor(id, nombre, precio, stock, oferta) {
-        this.id = id;
-        this.nombre = nombre;
-        this.precio = precio;
-        this.stock = stock;
-    }
-};
-
 const productos = [
     {
         id: 1,

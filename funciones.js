@@ -10,7 +10,7 @@ function agregarAlCarrito(id) {
         });
     }
 
-    localStorage.setItem("carrito", JSON.stringify(carrito));
+    localStorage.setItem("carrito", (JSON.stringify(carrito)));
 
     mostraCarrito();
 };
@@ -61,8 +61,7 @@ function mostraCarrito() {
 
         card.appendChild(btnDelete);
 
-        
-    })
+    });
 
 };
 
@@ -78,14 +77,14 @@ function modificarCarrito(index, op) {
         carrito[index].cantidad += 1
     };
 
-    localStorage.setItem("carrito", JSON.stringify(carrito));
+    localStorage.setItem("carrito", (JSON.stringify(carrito)));
 
     mostraCarrito();
 
 };
 
-function eliminarProducto(index){
+function eliminarProducto(index) {
     carrito.splice(index, 1);
-    localStorage.setItem("carrito", JSON.stringify(carrito));
+    localStorage.setItem("carrito", (JSON.stringify(carrito)));
     mostraCarrito();
 };

@@ -1,13 +1,15 @@
-//Programa interactivo Distribuidora Silva.
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 let productoContenedor = document.getElementById("products-container");
+
+let carrito2 = document.getElementById("card");
 
 productos.forEach((el) => {
     let card = document.createElement("div");
     card.className = "product-card";
 
     let img = document.createElement("img");
-    img.innerHTML = `Img: ${el.imagen}`;
+    img.innerHTML = `src: ${el.imagen}`;
 
     card.appendChild(img);
 
@@ -31,9 +33,7 @@ productos.forEach((el) => {
 
     productoContenedor.appendChild(card);
 
-})
-
-let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+});
 
 let btnShowCart = document.getElementById("show-cart");
 let btnHideCart = document.getElementById("hide-cart");
