@@ -1,146 +1,44 @@
 //Programa interactivo Distribuidora Silva.
 
-alert("Bienvenido A Distribuidora Silva. Para comenzar con el Bot, le pedimos unos datos: ");
+let productoContenedor = document.getElementById("products-container");
 
-class Producto {
-    constructor(id, nombre, precio, stock, oferta) {
-        this.id = id;
-        this.nombre = nombre;
-        this.precio = precio;
-        this.stock = stock;
-        this.oferta = oferta;
-    }
-};
+productos.forEach((el) => {
+    let card = document.createElement("div");
+    card.className = "product-card";
 
-const productos = [
-    {
-        id: 1,
-        nombre: "Royal Canin",
-        precio: 3000,
-        stock: 30,
-        oferta: false
-    },
-    {
-        id: 2,
-        nombre: "Proplan",
-        precio: 2750,
-        stock: 15,
-        oferta: true
-    },
-    {
-        id: 3,
-        nombre: "Eukanuba",
-        precio: 2600,
-        stock: 0,
-        oferta: false
-    },
-    {
-        id: 4,
-        nombre: "Old Prince",
-        precio: 2650,
-        stock: 50,
-        oferta: true
-    },
-];
+    let img = document.createElement("img");
+    img.innerHTML = `Img: ${el.imagen}`;
 
-function mensajeGeneral(array) {
-    let mensaje = "";
-    array.forEach((el) => mensaje += `
-    ${el.id}) ${el.nombre} - Precio: $${el.precio}
-    `);
+    card.appendChild(img);
 
-    return (mensaje);
-}
+    let title = document.createElement("h3");
+    title.innerText = `Nombre: ${el.nombre}`;
 
-function nuestrosProductos() {
-    let mensajeProductos = mensajeGeneral(productos);
-    alert(mensajeProductos);
-};
+    card.appendChild(title);
 
-function productosEnStock() {
-    let productosEnStock = productos.filter((el) => el.stock > 1);
+    let price = document.createElement("p");
+    price.innerText = `Precio: $${el.precio}`;
 
-    let mensajeStock = mensajeGeneral(productosEnStock);
-    alert(mensajeStock);
+    card.appendChild(price);
 
-};
+    let buttonAdd = document.createElement("button");
+    buttonAdd.innerText = `Agregar`;
+    buttonAdd.className = "btn btn-secondary";
 
-function productosEnOferta() {
+    buttonAdd.onclick = () => agregarAlCarrito(el.id);
 
-    let productosEnOferta = productos.filter((el) => el.oferta);
+    card.appendChild(buttonAdd);
 
-    let mensajeOfertas = mensajeGeneral(productosEnOferta);
-    alert(mensajeOfertas);
-};
+    productoContenedor.appendChild(card);
 
-function agregarUnProducto() {
-    let id = parseInt(prompt("Ingrese el Id del producto: "));
-    let nombre = prompt("Ingrese nombre del producto a agregar: ");
-    let precio = parseInt(prompt("Ingrese precio del producto: "));
-    let stock = parseInt(prompt("Ingrese stock del producto: "));
+})
 
-    if (productos.some(el => el.id === id)) {
-        alert("Ya existe! genere otro ID por favor: ");
-    } else {
-        if (nombre !== "" && precio > 0 && stock > 0) {
-            let nuevoProducto = new Producto(id, nombre, precio, stock, false);
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-            productos.push(nuevoProducto);
+let btnShowCart = document.getElementById("show-cart");
+let btnHideCart = document.getElementById("hide-cart");
+let btnCleanCart = document.getElementById("clean-cart");
 
-        } else {
-            alert("Datos Incorrectos.");
-        }
-    }
-};
-
-function eliminarProducto(id) {
-    const indice = productos.findIndex((el) => el.id === id);
-
-    if (indice >= 0) {
-        productos.splice(indice, 1);
-        alert(`Producto con ID ${id} eliminado.`);
-    } else {
-        alert(`No se encontró ningún producto con ID ${id}.`);
-    }
-}
-
-
-let opcion;
-
-do {
-
-    opcion = (prompt("Para ver nuestro menu, ingrese una opción:\n\n1. Nuestros Productos.\n2. Ver los producto en stock.\n3. Ver productos en ofertas.\n4. Para agregar un producto.\n5. Elimina un producto.\n\n6. Para finalizar programa 0."));
-
-    switch (opcion) {
-        case "0":
-            alert("Muchas gracias por interactuar con nosotros! que tengas buen dia.")
-            break;
-        case "1":
-            nuestrosProductos();
-            break;
-        case "2":
-            productosEnStock();
-            break;
-        case "3":
-            productosEnOferta();
-            break;
-        case "4":
-            agregarUnProducto();
-            break;
-        case "5":
-            const idAEliminar = parseInt(prompt("Ingrese el ID del producto que desea eliminar: "));
-
-            if (idAEliminar !== "" || !isNaN(idAEliminar)) {
-                eliminarProducto(idAEliminar);
-            } else {
-                alert("Ingresa un ID válido");
-            }
-
-            break;
-
-        default:
-            alert("Opcion incorrecta, ingrese una opcion valida por favor.")
-            break;
-    }
-
-} while (opcion !== "0");
+btnShowCart.onclick = mostraCarrito;
+btnHideCart.onclick = ocultarCarrito;
+btnCleanCart.onclick = limpiarCarrito;
