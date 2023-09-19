@@ -2,24 +2,31 @@
   margin: 0;
   padding: 0;
 }
+body {
+  height: 100%;
+}
+
+.products-container {
+  justify-content: space-around;
+ 
+}
+.card {
+  border-radius: 2px solid black;
+}
 
 .product-card {
-  height: 200px;
-  width: 300px;
-  text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
-  border-radius: 1px;
-  border: solid 2px black;
-  margin: 10px 50px;
-  
+  /* width:100px;
+  height:400px; */
+  border-color: black;
 }
 
 .div-cantidad {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 #cart {
   text-align: center;
-  justify-content: center;
+  justify-content: space-around;
 }
+ 

@@ -9,7 +9,7 @@ productos.forEach((el) => {
     card.className = "product-card";
 
     let img = document.createElement("img");
-    img.innerHTML = `src: ${el.imagen}`;
+    img.src = el.imagen;
 
     card.appendChild(img);
 
