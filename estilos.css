@@ -76,10 +76,12 @@ img{
   cursor: pointer;
 }
 .cart{
-  flex-direction: column;
+  background-color: #354967;
+  border-radius: 20px;
   align-items: center;
   display: flex;
   justify-content: center;
+  margin: 0px 50px 50px 50px;
 }
 .carrito h3{
   margin: 20px;
