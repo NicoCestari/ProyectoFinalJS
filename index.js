@@ -1,6 +1,6 @@
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-let productoContenedor = document.getElementById("products-container");
+let productoContenedor = document.getElementById("contenedor");
 
 let carrito2 = document.getElementById("card");
 
@@ -25,7 +25,7 @@ productos.forEach((el) => {
 
     let buttonAdd = document.createElement("button");
     buttonAdd.innerText = `Agregar`;
-    buttonAdd.className = "btn btn-secondary";
+    buttonAdd.className = "button";
 
     buttonAdd.onclick = () => agregarAlCarrito(el.id);
 
