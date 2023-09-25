@@ -22,7 +22,7 @@ function mostraCarrito() {
 
     carrito.forEach((el, index) => {
         let card = document.createElement("div");
-        card.className = "carrito-card";
+        card.className = "carrito-card product-card";
 
         let title = document.createElement("h3");
         title.innerText = `Nombre: ${el.nombre}`;
