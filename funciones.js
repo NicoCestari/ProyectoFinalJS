@@ -11,8 +11,19 @@ function agregarAlCarrito(id) {
     }
 
     localStorage.setItem("carrito", (JSON.stringify(carrito)));
+    
+    Toastify({
+        text: "Producto agregado con exito!",
+        duration: 2000,
+        gravity: 'top',
+        position: 'right',
+        style: {
+            background: 'linear-gradient(to right, #354967, #141c29)'
+        }
+    }).showToast();
 
     mostraCarrito();
+    
 };
 
 function mostraCarrito() {
@@ -60,6 +71,7 @@ function mostraCarrito() {
         btnDelete.innerText = "Borrar";
 
         card.appendChild(btnDelete);
+        //agregar el total de los productos agregados//
 
     });
 
@@ -84,7 +96,24 @@ function modificarCarrito(index, op) {
 };
 
 function eliminarProducto(index) {
-    carrito.splice(index, 1);
-    localStorage.setItem("carrito", (JSON.stringify(carrito)));
-    mostraCarrito();
+
+    Swal.fire({
+        icon: 'info',
+        title: 'Estás seguro de eliminar el producto?',
+        showCancelButton: true,
+        confirmButtonText: 'Sí, seguro',
+        cancelButtonText: 'No, no quiero'
+    }).then((result) => {
+
+        if (result.isConfirmed) {
+            carrito.splice(index, 1);
+            localStorage.setItem("carrito", (JSON.stringify(carrito)));
+            Swal.fire({
+                title: 'Producto borrado!',
+                icon: 'success'
+            })
+            mostraCarrito();
+        }
+    });
+
 };
