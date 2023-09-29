@@ -20,7 +20,7 @@ fetch('./productos.json')
             card.appendChild(img);
 
             let title = document.createElement("h3");
-            title.innerText = `Nombre: ${el.nombre}`;
+            title.innerText = `${el.nombre}`;
 
             card.appendChild(title);
 

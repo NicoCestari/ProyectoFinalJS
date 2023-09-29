@@ -36,7 +36,7 @@ function mostraCarrito() {
         card.className = "carrito-card product-card";
 
         let title = document.createElement("h3");
-        title.innerText = `Nombre: ${el.nombre}`;
+        title.innerText = `${el.nombre}`;
 
         card.appendChild(title);
 

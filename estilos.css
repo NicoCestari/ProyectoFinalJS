@@ -39,11 +39,6 @@ img {
   background-color: #2D4263;
   border-radius: 20px;
 }
-
-.product-card {
-  margin-bottom: 50px;
-}
-
 .product-card h3 {
   font-size: 25px;
   height: 50px;
@@ -69,11 +64,11 @@ img {
 }
 
 .button {
-  margin: 20px 20px 20px 50px;
+  margin: 20px 20px 20px 100px;
   background-color: #263143;
   width: 100px;
   height: 35;
-  border-radius: 10px;
+  border-radius: 20px;
   border: none;
   font-size: 17px;
   font-weight: 300;
@@ -84,7 +79,7 @@ img {
   background-color: #354967;
   border-radius: 20px;
   align-items: center;
-  display: flex;
+  display: inline-flex;
   flex-wrap: wrap;
   justify-content: center;
   margin: 0px 50px 50px 50px;
@@ -94,6 +89,16 @@ img {
   height: 50px;
   border: 1px solid darkblue;
   border-radius: 10px;
+}
+
+.button2{
+  margin: 20px 50px 20px 50px;
+  background-color: #354967;
+  width: 100px;
+  height: 30px;
+  border-radius: 20px;
+  font-size: 20px;
+  cursor: pointer;
 }
 
 .car{
@@ -116,31 +121,17 @@ img {
   justify-content: space-between;
   align-items: center;
 }
-
-.div-cantidad>* {
-  margin-right: 10px;
-}
-
-.div-cantidad>*:last-child {
-  margin-right: 0;
-}
-
 .carrito-card {
-  display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  margin: 10px 10px 10px 10px;
 }
-
-.carrito-card button {
-  margin-top: 10px;
-}
-
 .product-card {
   border: 1px solid #141c29;
   padding: 10px;
   margin-bottom: 10px;
-  border-radius: 5px;
+  border-radius: 10px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.75);
 }
 
@@ -149,40 +140,6 @@ img {
     flex-direction: column;
     align-items: center;
   }
-}
-
-.loader {
-  width: 48px;
-  height: 48px;
-  border: 5px solid #FFF;
-  border-radius: 50%;
-  display: inline-block;
-  box-sizing: border-box;
-  position: relative;
-  animation: pulse 1s linear infinite;
-}
-.loader:after {
-  content: '';
-  position: absolute;
-  width: 48px;
-  height: 48px;
-  border: 5px solid #FFF;
-  border-radius: 50%;
-  display: inline-block;
-  box-sizing: border-box;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  animation: scaleUp 1s linear infinite;
-}
-
-@keyframes scaleUp {
-  0% { transform: translate(-50%, -50%) scale(0) }
-  60% , 100% { transform: translate(-50%, -50%)  scale(1)}
-}
-@keyframes pulse {
-  0% , 60% , 100%{ transform:  scale(1) }
-  80% { transform:  scale(1.2)}
 }
 
 .loader-page {
