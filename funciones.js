@@ -24,7 +24,7 @@ function agregarAlCarrito(id) {
 
     mostraCarrito();
     
-};
+}
 
 function mostraCarrito() {
     let divCarrito = document.getElementById("cart");
@@ -71,11 +71,15 @@ function mostraCarrito() {
         btnDelete.innerText = "Borrar";
 
         card.appendChild(btnDelete);
-        //agregar el total de los productos agregados//
 
     });
 
-};
+    let total = calcularTotal();
+    let totalElemento = document.createElement("h4");
+    totalElemento.innerText = `Total: $${total}`;
+    divCarrito.appendChild(totalElemento);
+
+}
 
 function modificarCarrito(index, op) {
     if (op === "-") {
@@ -93,7 +97,7 @@ function modificarCarrito(index, op) {
 
     mostraCarrito();
 
-};
+}
 
 function eliminarProducto(index) {
 
@@ -116,7 +120,15 @@ function eliminarProducto(index) {
         }
     });
 
-};
+}
+
+function calcularTotal() {
+    let total = 0;
+    carrito.forEach((producto) => {
+        total += producto.precio * producto.cantidad;
+    });
+    return total;
+}
 
 $(window).on('load', function () {
     setTimeout(function () {
