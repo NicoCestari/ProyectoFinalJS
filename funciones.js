@@ -98,7 +98,7 @@ function modificarCarrito(index, op) {
 function eliminarProducto(index) {
 
     Swal.fire({
-        icon: 'info',
+        icon: 'warning',
         title: 'Estás seguro de eliminar el producto?',
         showCancelButton: true,
         confirmButtonText: 'Sí, seguro',
@@ -117,3 +117,10 @@ function eliminarProducto(index) {
     });
 
 };
+
+$(window).on('load', function () {
+    setTimeout(function () {
+  $(".loader-page").css({visibility:"hidden",opacity:"0"})
+}, 2000);
+   
+});
