@@ -22,5 +22,17 @@
         "nombre": "Old Prince",
         "precio": 2650,
         "imagen": "./assets/OP.jpeg"
+    },
+    {
+        "id": 5,
+        "nombre": "Golocan",
+        "precio": 2000,
+        "imagen": "./assets/GC1.jpg"
+    },
+    {
+        "id": 6,
+        "nombre": "Tetra",
+        "precio": 2400,
+        "imagen": "./assets/TT1.jpg"
     }
 ]
