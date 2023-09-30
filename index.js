@@ -3,7 +3,7 @@ let carrito2 = document.getElementById("card");
 const producto = document.querySelector("#contenedor");
 
 let productoContenedor = document.getElementById("contenedor");
-let carritoOn = false;
+
 fetch('./productos.json')
     .then((response) => response.json())
     .then((data) => {
